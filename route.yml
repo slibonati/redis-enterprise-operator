@@ -1,0 +1,36 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+  namespace: redis
+  labels:
+    app: redis-enterprise
+    redis.io/cluster: rec
+spec:
+  host: redis-ui-redis.apps.cluster-lba7d2.lba7d2.sandbox734.opentlc.com
+  to:
+    kind: Service
+    name: rec-ui
+    weight: 100
+  port:
+    targetPort: ui
+  tls:
+    termination: passthrough
+  wildcardPolicy: None
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: redis-rest-api
+  namespace: redis
+  labels:
+    app: redis-enterprise
+    redis.io/cluster: rec
+spec:
+  host: redis-rest-api-redis.apps.cluster-lba7d2.lba7d2.sandbox734.opentlc.com
+  to:
+    kind: Service
+    name: rec
+    weight: 100
+  port:
+    targetPort: api
+  tls:
+    termination: passthrough
+  wildcardPolicy: None
