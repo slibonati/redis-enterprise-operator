@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: audit
+spec:
+  selector:
+    matchLabels:
+      app: audit
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-openshift
+    spec:
+      containers:
+        - name: audit
+          image: docker.io/subfuzion/netcat:latest
+          command:
+             - nc
+          args:
+            - '-l'
+            - '-p 2200'

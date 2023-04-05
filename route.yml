@@ -1,6 +1,7 @@
 kind: Route
 apiVersion: route.openshift.io/v1
-  namespace: redis
+metadata:
+  name: redis-ui
   labels:
     app: redis-enterprise
     redis.io/cluster: rec
@@ -15,11 +16,11 @@ spec:
   tls:
     termination: passthrough
   wildcardPolicy: None
+---
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: redis-rest-api
-  namespace: redis
   labels:
     app: redis-enterprise
     redis.io/cluster: rec
