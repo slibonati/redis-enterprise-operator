@@ -9,16 +9,12 @@ def getdbs():
      cert_reqs = ssl.CERT_NONE
      http = urllib3.PoolManager(cert_reqs = cert_reqs)
 
-     #payload = {'name': 'John Doe'}
-     #encoded_data = json.dumps(payload).encode('utf-8')
-
      headers = urllib3.make_headers(basic_auth=configs.get("username").data + ":" + configs.get("password").data)
      headers.update({'Accept': 'application/json'})
      
      resp = http.request(
           'GET',
           configs.get("url").data + "/v1/bdbs",
-          #body=encoded_data,
           headers=headers)
      print(resp.status)
      data = json.loads(resp.data.decode('utf-8'))

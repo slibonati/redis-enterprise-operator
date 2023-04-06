@@ -10,7 +10,6 @@ def client():
     ssl_cert_reqs="required",
     ssl_ca_certs="redis.pem")
 
-    #print(r.info)
     r.set('foo', 'bar')
     value = r.get('foo')
     print(value)

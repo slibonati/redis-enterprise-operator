@@ -1,12 +1,12 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: redis-ui
+  name: redis-demo-ui
   labels:
     app: redis-enterprise
     redis.io/cluster: rec
 spec:
-  host: redis-ui-redis.apps.cluster-lba7d2.lba7d2.sandbox734.opentlc.com
+  host: redis-demo-ui-redis.apps.cluster-lba7d2.lba7d2.sandbox734.opentlc.com
   to:
     kind: Service
     name: rec-ui
@@ -20,12 +20,12 @@ spec:
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: redis-rest-api
+  name: redis-demo-rest-api
   labels:
     app: redis-enterprise
     redis.io/cluster: rec
 spec:
-  host: redis-rest-api-redis.apps.cluster-lba7d2.lba7d2.sandbox734.opentlc.com
+  host: redis-demo-rest-api-redis.apps.cluster-lba7d2.lba7d2.sandbox734.opentlc.com
   to:
     kind: Service
     name: rec
