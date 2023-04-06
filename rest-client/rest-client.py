@@ -57,7 +57,7 @@ def configure_cluster_audit():
      headers.update({'Content-type': 'application/json'})
      
      resp = http.request(
-          'POST',
+          'PUT',
           configs.get("url").data + "/v1/cluster/auditing/db_conns",
           body=encoded_data,
           headers=headers)
@@ -78,7 +78,7 @@ def configure_db_audit(uid):
      headers.update({'Content-type': 'application/json'})
      
      resp = http.request(
-          'POST',
+          'PUT',
           configs.get("url").data + "/v1/bdbs/" + uid,
           body=encoded_data,
           headers=headers)
@@ -93,8 +93,8 @@ def main():
      configs.load(read_prop)
      #getdbs()
      #createdb()
-     #enable_audit()
-     #configure_db_audit(uid)
+     #configure_cluster_audit()
+     configure_db_audit("2")
  
 if __name__=="__main__":
     main()

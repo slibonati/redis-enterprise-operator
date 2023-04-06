@@ -6,7 +6,6 @@ def client():
     r = redis.Redis(
     host=configs.get("hostname").data,
     port=configs.get("port").data,
-    #password=configs.get("password").data,
     ssl=True,
     ssl_cert_reqs="required",
     ssl_ca_certs="redis.pem")

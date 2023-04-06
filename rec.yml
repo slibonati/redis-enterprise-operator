@@ -1,4 +1,4 @@
-apiVersion: app.redislabs.com/v1
+apiVersion: app.redislabs.com/v1alpha1
 kind: RedisEnterpriseCluster
 metadata:
   name: rec
@@ -7,3 +7,10 @@ metadata:
 spec:
   # Add fields here
   nodes: 3
+  bootstrapperImageSpec:
+    repository: registry.connect.redhat.com/redislabs/redis-enterprise-operator
+  redisEnterpriseServicesRiggerImageSpec:
+    repository: registry.connect.redhat.com/redislabs/services-manager
+  redisEnterpriseImageSpec:
+    imagePullPolicy: IfNotPresent
+    repository: registry.connect.redhat.com/redislabs/redis-enterprise
